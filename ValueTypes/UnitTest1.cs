@@ -24,7 +24,7 @@ namespace ValueTypes
             char character = 'a';
             char symbol = '?';
             char numbers = '7';
-            char space = '';
+            char space = ' ';
             char specialCharacters = '\n';
         }
         [TestMethod]
@@ -76,3 +76,5 @@ namespace ValueTypes
         }
     }
 }
+
+
