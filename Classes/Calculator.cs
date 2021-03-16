@@ -15,7 +15,7 @@ namespace Classes
             return sum;
 
         }
-        public void Add(double numOne, double numTwo)
+        public double Add(double numOne, double numTwo)
         {
             double sum = numOne + numTwo;
             return sum;

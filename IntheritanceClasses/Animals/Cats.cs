@@ -20,7 +20,7 @@ namespace IntheritanceClasses
 
         public string Color { get; set; }
 
-        public string HarirLenght { get; set; }
+        public string HarirLength { get; set; }
 
         public virtual void MakesSound()
         {
