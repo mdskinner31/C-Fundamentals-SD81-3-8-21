@@ -71,7 +71,7 @@ namespace RepositoryPatterns
             StarRating = starRating;
         }
 
-        
+       
     }
 
 

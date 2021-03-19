@@ -1,11 +1,13 @@
 ﻿namespace StreamingContent_Inheritance
 {
-    public class Episode
+    public class Episode : StreamingRepository
     {
-        public int MyProperty { get; set; }
-        Title
-            RunTime
-            SeasonNumber
+        public string Title { get; set; }
 
+        public double RunTime { get; set; }
+
+        public int SeasonNumber { get; set; }
+      
+       // public int EpisodeCountNumber { get; set; }
     }
 }

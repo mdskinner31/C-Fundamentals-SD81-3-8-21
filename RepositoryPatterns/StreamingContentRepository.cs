@@ -10,21 +10,25 @@ namespace RepositoryPatterns
     {
         protected readonly List<StreamingContent> _contentDirectory = new List<StreamingContent>();
 
+        //Create
         public bool AddContentToDirectory(StreamingContent content)
         {
             int startingCount = _contentDirectory.Count;
 
             _contentDirectory.Add(content);
 
-            bool wasAdded = (_contentDirectory.Count > startingCount) ? true : false;
+            bool wasAdded = _contentDirectory.Count > startingCount;
             return wasAdded;
 
         }
+
+        //Read
         public List<StreamingContent> GetContent()
         {
             return _contentDirectory;
         }
 
+        //Helper method
         public StreamingContent GetContentByTitle(string title)
         {
             foreach (StreamingContent content in _contentDirectory)
@@ -37,6 +41,8 @@ namespace RepositoryPatterns
 
             return null;
         }
+
+
         public StreamingContent GetContentByDescription(string description)
         {
             foreach (StreamingContent content in _contentDirectory)
@@ -51,51 +57,55 @@ namespace RepositoryPatterns
         }
 
 
-    public StreamingContent GetContentByGenreType(GenreType genretype)
-    {
-        foreach (StreamingContent content in _contentDirectory)
+        public StreamingContent GetContentByGenreType(GenreType genretype)
         {
-            if (content.GenreType == genretype)
+            foreach (StreamingContent content in _contentDirectory)
             {
-                return content;
+                if (content.GenreType == genretype)
+                {
+                    return content;
+                }
             }
+
+            return null;
         }
 
-        return null;
-    }
-
-    
-   
 
 
 
 
 
-    public bool UpdateExistingContent(string originalTitle, StreamingContent newContent)
-    {
-        StreamingContent oldContent = GetContentByTitle(originalTitle);
+        //Update
 
-        if (oldContent != null)
+        public bool UpdateExistingContent(string originalTitle, StreamingContent newContent)
         {
-            oldContent.Title = newContent.Title;
-            oldContent.Description = newContent.Description;
-            oldContent.MaturityRating = newContent.MaturityRating;
-            oldContent.GenreType = newContent.GenreType;
-            oldContent.StarRating = newContent.StarRating;
+            // Find the content
+            StreamingContent oldContent = GetContentByTitle(originalTitle);
 
-            return true;
+            //Updaet the content
+            if (oldContent != null)
+            {
+                oldContent.Title = newContent.Title;
+                oldContent.Description = newContent.Description;
+                oldContent.MaturityRating = newContent.MaturityRating;
+                oldContent.GenreType = newContent.GenreType;
+                oldContent.StarRating = newContent.StarRating;
 
-        }
-        else
+                return true;
+
+            }  
+            else
+            {
+                return false;
+            }
+        } 
+
+        //Delete
+        public bool DeleteExistingContent(StreamingContent existingContent)
         {
-            return false;
+            bool deleteResult = _contentDirectory.Remove(existingContent);
+            return deleteResult;
         }
-    }
-    public bool DeleteExistingContent(StreamingContent existingContent)
-    {
-        bool deleteResult = _contentDirectory.Remove(existingContent);
-        return deleteResult;
-    }
     }
 }
 

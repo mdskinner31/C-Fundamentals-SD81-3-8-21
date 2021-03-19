@@ -18,8 +18,8 @@ namespace StreamingContent_Inheritance
         }
 
 
-        public Movie(string title,string description, MaturityRating maturity, GenreType genreType, double starRating,double runtime)
-                    :base(title,description,MaturityRating,GenreType,starRating)
+        public Movie(string title,string description, MaturityRating maturityRating, GenreType genreType, double starRating,double runtime)
+                    : base(title, description, maturityRating, genreType, starRating)
         {
             RunTime = RunTime;
         }
